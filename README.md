@@ -1,75 +1,123 @@
-# CMPG 313 – Lab 3: AI The Past and the Present
+# AI Chatbot Comparison: ELIZA vs Modern LLM
 
-## Overview
-This project compares **rule-based AI (ELIZA)** with **modern generative AI (LLM)** side-by-side using a Python GUI.
+A professional Natural Language Processing and Artificial Intelligence project comparing a classic rule-based chatbot with a modern transformer-based language model. The project highlights the evolution from transparent pattern-matching systems to neural generative AI through a side-by-side Python GUI.
 
-## Files
-| File | Description |
-|------|-------------|
-| `eliza.py` | Custom rule-based ELIZA chatbot (10+ rules, no NLTK dependency) |
-| `LLM.py` | Modern LLM chatbot using Qwen2.5-1.5B-Instruct via HuggingFace |
-| `chat_comparison.py` | Side-by-side Tkinter GUI comparing both systems |
+## Project Overview
 
-## Setup
+This project compares two different approaches to conversational AI:
 
-### 1. Install dependencies
-```bash
-pip install transformers torch
+- ELIZA-style rule-based chatbot using handcrafted pattern-matching rules
+- Modern Large Language Model chatbot using Hugging Face Transformers
+- Side-by-side graphical interface for direct response comparison
+- Qualitative analysis of explainability, fluency, speed, and context handling
+
+The goal is to demonstrate how chatbot design has evolved from deterministic rules to modern generative models.
+
+## Repository Structure
+
+```text
+ai-chatbot-comparison-eliza-vs-llm/
++-- assets/
+�   +-- screenshots/
+�       +-- chatbot-comparison-1.png
+�       +-- chatbot-comparison-2.png
+�       +-- chatbot-comparison-3.png
++-- src/
+�   +-- eliza.py
+�   +-- llm_chatbot.py
+�   +-- chat_comparison_gui.py
++-- requirements.txt
++-- .gitignore
++-- README.md
 ```
 
-### 2. Run ELIZA only
+## Technologies Used
+
+- Python
+- Tkinter
+- Hugging Face Transformers
+- PyTorch
+- Qwen2.5-1.5B-Instruct
+- Rule-based NLP
+- Generative AI
+
+## Installation
+
+Clone the repository and install dependencies.
+
 ```bash
-python eliza.py
+git clone https://github.com/mulondimbodi/ai-chatbot-comparison-eliza-vs-llm.git
+cd ai-chatbot-comparison-eliza-vs-llm
+pip install -r requirements.txt
 ```
 
-### 3. Run LLM only
+The first LLM run may download the model from Hugging Face, which can require significant bandwidth and disk space.
+
+## Usage
+
+### Run the ELIZA chatbot only
+
 ```bash
-python LLM.py
+python src/eliza.py
 ```
-> Note: First run will download the Qwen2.5-1.5B model (~1 GB).
 
-### 4. Run the comparison GUI
+### Run the LLM chatbot only
+
 ```bash
-python chat_comparison.py
+python src/llm_chatbot.py
 ```
 
-## ELIZA Rules Modified (Part 1)
-The custom `eliza.py` includes 10 rules:
-1. **Greetings** – Hello, hi, hey
-2. **Name introduction** – "My name is …"
-3. **Feeling statements** – "I feel …" / "I am feeling …"
-4. **Stress/anxiety** – Detects stressed, anxious, overwhelmed
-5. **Tiredness/sleep** – Detects tired, exhausted, need sleep
-6. **Family references** – Mother, father, parents
-7. **"I need …"** – Reflects needs back as questions
-8. **"Because …"** – Challenges reasoning
-9. **"I am …"** – Identity statements
-10. **Goodbye** – Quit/bye detection
-11. **Fallback** – Generic Socratic responses
+### Run the side-by-side comparison GUI
 
-## Test Prompts Used
-- Hello
-- My name is Mulondi
-- I feel stressed
-- I am tired
-- Because I have exams
-- My mother is strict
-- I need more sleep
-- quit
+```bash
+python src/chat_comparison_gui.py
+```
 
-## Key Observations
-| Aspect | ELIZA | LLM |
-|--------|-------|-----|
-| Technique | Pattern matching (regex) | Neural text generation |
-| Context awareness | None – each reply is independent | Partial – follows topic |
-| Naturalness | Formulaic, repetitive | Fluent, varied |
-| Explainability | Fully transparent (readable rules) | Black-box |
-| Speed | Instant | Seconds (inference) |
-| Failure mode | Falls back to generic response | May hallucinate or drift |
+## Comparison Focus
 
-## Screenshots
-Screenshots of ELIZA, LLM and comparison GUI conversations are included in this repository.
+| Aspect | ELIZA | Modern LLM |
+| --- | --- | --- |
+| Technique | Rule-based pattern matching | Transformer-based text generation |
+| Explainability | High | Lower |
+| Context handling | Limited | Stronger short-form context handling |
+| Response style | Predictable and structured | Fluent and varied |
+| Resource usage | Very lightweight | Requires model download and inference resources |
+| Failure mode | Generic fallback responses | May hallucinate or drift from the prompt |
+
+## Results
+
+### Chatbot comparison screenshot 1
+
+![Chatbot comparison 1](assets/screenshots/chatbot-comparison-1.png)
+
+### Chatbot comparison screenshot 2
+
+![Chatbot comparison 2](assets/screenshots/chatbot-comparison-2.png)
+
+### Chatbot comparison screenshot 3
+
+![Chatbot comparison 3](assets/screenshots/chatbot-comparison-3.png)
+
+## AI and Data Science Relevance
+
+This project demonstrates practical AI and NLP skills including:
+
+- Implementing rule-based natural language processing
+- Using transformer-based language models through Hugging Face
+- Comparing symbolic AI with modern generative AI
+- Building an interactive Python GUI for model evaluation
+- Communicating qualitative model behavior through examples
+- Understanding trade-offs between explainability, fluency, and computational cost
+
+## Future Improvements
+
+- Add response time benchmarking for both systems
+- Save conversation logs for analysis
+- Add sentiment analysis on user prompts and chatbot responses
+- Compare multiple open-source LLMs
+- Add evaluation metrics for relevance, coherence, and latency
+- Package the application as a desktop executable
 
 ## Author
-Module: CMPG 313  
-Institution: North-West University
+
+Created by Mulondi Mbodi as part of a professional Artificial Intelligence, NLP, and Data Science portfolio.
